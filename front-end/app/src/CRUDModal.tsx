@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import { Order } from "./DBView";
+import { Order } from "./api";
 
 export function AddModal() {
 

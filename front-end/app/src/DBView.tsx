@@ -52,11 +52,6 @@ function addressFromGridCellParams(params: GridCellParams) {
   return `${address1}${address2}, ${city}, ${state} ${zip}`;
 }
 
-async function getOrders() {
-  const result = await fetch("http://localhost:3001/people");
-  return (await result.json()) as Order[];
-}
-
 function AddButton() {
   return (
     <Button>

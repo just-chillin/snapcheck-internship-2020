@@ -20,3 +20,8 @@
       amount: number;
     };
   }
+
+  async function getOrders() {
+    const result = await fetch("http://localhost:3001/people");
+    return (await result.json()) as Order[];
+  }
