@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { DBView } from "./components/DBView";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
