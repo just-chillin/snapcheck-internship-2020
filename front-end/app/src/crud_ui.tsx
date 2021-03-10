@@ -7,7 +7,7 @@ import React from "react";
 import { Order } from "./api";
 
 export function AddModal() {
-
+    
 }
 
 export function EditModal() {

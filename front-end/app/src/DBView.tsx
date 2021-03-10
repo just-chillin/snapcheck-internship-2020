@@ -10,7 +10,7 @@ import {
 import { Button } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import { Delete } from "@material-ui/icons";
-import { Order } from "../api";
+import { Order, ordersGET } from "./api";
 
 interface WithSelectedRowProps {
   order?: Order;
@@ -92,7 +92,7 @@ function ToolbarButtons(props: WithSelectedRowProps) {
 function TableToolbar(props: WithSelectedRowProps) {
   return (
     <GridToolbarContainer>
-      <ToolbarButtons {...props} />
+      {ToolbarButtons(props)}
     </GridToolbarContainer>
   );
 }
@@ -104,11 +104,11 @@ export function DBView() {
     setCurrentlySelectedRowRef,
   ] = useState<GridRowSelectedParams>();
   useEffect(() => {
-    getOrders().then(setData);
+    ordersGET().then(setData);
   }, []);
 
   return (
-    <div style={{ display: "flex", height: "100%" }}>
+    <div style={{ display: "flex", height: "100vh" }}>
       <div style={{ flexGrow: 1 }}>
         <DataGrid
           columns={columns}
@@ -127,3 +127,4 @@ export function DBView() {
     </div>
   );
 }
+
