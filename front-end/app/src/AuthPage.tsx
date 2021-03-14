@@ -2,6 +2,7 @@ import { Button, Paper, TextField, Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import React, { useState } from "react";
 import { useHistory, useLocation } from "react-router";
+import {AddModal, EditModal, DeleteModal} from "./modals"
 
 async function storeCredentials(email: string, password: string) {
   // Encrypt the credentials.
@@ -17,6 +18,8 @@ async function storeCredentials(email: string, password: string) {
   // Set the auth_token key in localStorage
   localStorage.setItem("auth_token", auth_token);
 }
+
+
 
 function AuthHeader() {
   return (

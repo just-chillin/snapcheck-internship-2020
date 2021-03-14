@@ -11,6 +11,7 @@ import { Button } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import { Delete } from "@material-ui/icons";
 import { Order, ordersGET } from "./api";
+import { useHistory } from "react-router";
 
 interface WithSelectedRowProps {
   order?: Order;
@@ -53,6 +54,7 @@ function addressFromGridCellParams(params: GridCellParams) {
 }
 
 function AddButton() {
+  const history = useHistory();
   return (
     <Button>
       <GridAddIcon />
@@ -71,8 +73,14 @@ function EditButton({order}: WithSelectedRowProps) {
 }
 
 function DeleteButton({order}: WithSelectedRowProps) {
+  const history = useHistory();
+
+  function onClick() {
+    history.push(`/delete/${order?.id}`);
+  }
+
   return (
-    <Button disabled={order == undefined}>
+    <Button disabled={order == undefined} onClick={onClick}>
       <Delete />
       Delete
     </Button>
